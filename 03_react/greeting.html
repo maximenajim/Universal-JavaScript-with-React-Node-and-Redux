@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>React Example</title>
+</head>
+<body>
+<div id="greeting-div"></div>
+
+<script src="https://fb.me/react-15.0.0.js"></script>
+<script src="https://fb.me/react-dom-15.0.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+<script type="text/babel">
+    const Greeting = React.createClass({
+        render: function() {
+            let greeting = null;
+            const myDate = new Date();
+            if (myDate.getHours() < 12){
+                greeting = "Good Morning!";
+            } else if (myDate.getHours() > 12 && myDate.getHours() <=17){
+                greeting = "Good Afternoon!";
+            } else if (myDate.getHours() > 17 && myDate.getHours() <=24){
+                greeting = "Good Evening!";
+            }
+            return (
+                <h1>{greeting}</h1>
+            )
+        }
+    });
+
+    ReactDOM.render(
+            <Greeting/>,
+        document.getElementById('greeting-div')
+    );
+</script>
+</body>
+</html>
